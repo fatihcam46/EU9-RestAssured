@@ -20,4 +20,19 @@ public class SimpleGetRequest {
         response.prettyPrint();
 
     }
+
+    String baseUrl = "http://54.145.124.192:8000";
+    @Test
+    public void test2() {
+        Response response = RestAssured.get(baseUrl + "/api/spartans/3");
+        //print result body
+        response.prettyPrint();
+    }
+//{
+//    "id": 3,
+//    "name": "Fidole",
+//    "gender": "Male",
+//    "phone": 6105035231
+//}
+
 }

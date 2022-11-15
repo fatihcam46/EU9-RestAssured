@@ -40,7 +40,7 @@ public class SpartanGetRequests {
         Assertions.assertEquals(response.contentType(),"application/json");
 
     }
-
+//--------------------------------------------------------------------
      /*
         Given accept header is application/json
         When users sends a get request to /api/spartans/3
@@ -51,22 +51,30 @@ public class SpartanGetRequests {
 
     @DisplayName("GET one spartan /api/spartans/3 and verify")
     @Test
-    public void test2(){
+    public void test2() {
         Response response = RestAssured.given().accept(ContentType.JSON).
                 when().get(baseUrl + "/api/spartans/3");
 
 
         //verify status code 200
-        Assertions.assertEquals(200,response.statusCode());
+        Assertions.assertEquals(200, response.statusCode());
 
         //verify content type
-        Assertions.assertEquals("application/json",response.contentType());
+        Assertions.assertEquals("application/json", response.contentType());
 
         //verify json body contains Fidole
         Assertions.assertTrue(response.body().asString().contains("Fidole"));
-
+        //print result body
+        response.prettyPrint();
+        //{
+        //    "id": 3,
+        //    "name": "Fidole",
+        //    "gender": "Male",
+        //    "phone": 6105035231
+        //}
     }
 
+//--------------------------------------------------------------------
     /*
         Given no headers provided
         When Users sends GET request to /api/hello
@@ -94,12 +102,16 @@ public class SpartanGetRequests {
         Assertions.assertTrue(response.headers().hasHeaderWithName("Date"));
         //how to get and header from response using header key ?
         //we use response.header(String headerName) method to get any header value
-        System.out.println("response.header(\"Content-Length\") = " + response.header("Content-Length"));
-        System.out.println(response.header("Date"));
+        System.out.println("response.header(\"Content-Length\") = " + response.header("Content-Length"));//response.header("Content-Length") = 17
+        System.out.println(response.header("Date"));//Tue, 15 Nov 2022 19:18:38 GMT
 
         //verify content length is 17
         Assertions.assertEquals("17",response.header("Content-Length"));
         //verify body is "Hello from Sparta"
         Assertions.assertEquals("Hello from Sparta",response.body().asString());
+        //if you chane it, fails
+        //org.opentest4j.AssertionFailedError:
+        //Expected :Hello from Spartas
+        //Actual   :Hello from Sparta
     }
 }

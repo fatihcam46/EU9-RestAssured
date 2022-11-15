@@ -15,8 +15,8 @@ public class SpartanNegativeGetTest {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:8000";
+        //save baseurl inside this variable so that we don't need to type each http method.
+        baseURI = "http://54.145.124.192:8000";//my IP ADDRESS
     }
 
     /*TASK
@@ -29,15 +29,20 @@ public class SpartanNegativeGetTest {
     @DisplayName("GET request to /api/spartans/10")
     @Test
     public void test1(){
-        Response response = given()
+        Response response = given()  //Given Accept type application/xml
                                     .accept(ContentType.XML)
-                            .when()
+                            .when() //When user send GET request to /api/spartans/10 end point
                                     .get("/api/spartans/10");
-
+                                    //Then status code must be 406
         //verify status code is 406
         assertEquals(406,response.statusCode());
+                                    //And response Content Type must be application/xml;charset=UTF-8
         //verify content type
         assertEquals("application/xml;charset=UTF-8",response.contentType());
+
+
+
+
     }
 
 }

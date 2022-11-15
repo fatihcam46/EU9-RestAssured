@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
+import static io.restassured.RestAssured.*;//we don't need all the time, import here, and do it down>>
 import static org.junit.jupiter.api.Assertions.*;
 
 public class HrGetRequests {
@@ -15,7 +15,8 @@ public class HrGetRequests {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:1000/ords/hr";
+        baseURI = "http://54.145.124.192:1000/ords/hr";//my IP ADDRESS from HR from AWS
+
     }
 
     @DisplayName("GET request to /regions")
@@ -25,10 +26,10 @@ public class HrGetRequests {
         Response response = get("/regions");
 
         //print the status code
-        System.out.println(response.statusCode());
+        System.out.println(response.statusCode());//200
 
     }
-
+//--------------------------------------------------------------------
      /*
         Given accept type is application/json
         When user sends get request to /regions/2
@@ -40,7 +41,7 @@ public class HrGetRequests {
     @DisplayName("GET request to /regions/2")
     @Test
     public void test2(){
-        Response response = given().accept(ContentType.JSON)
+        Response response = given().accept(ContentType.JSON)//hey Java I want to see JSON type
                             .when()
                                     .get("/regions/2");
 
@@ -53,7 +54,7 @@ public class HrGetRequests {
 
         //verify body contains Americas
         assertTrue(response.body().asString().contains("Americas"));
-
+//assertEquals it is same as assertTrue
     }
 
 
