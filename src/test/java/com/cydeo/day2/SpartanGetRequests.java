@@ -15,7 +15,7 @@ public class SpartanGetRequests {
 //    Then status code must 200
 //    And response Content Type must be application/json
 //    And response body should include spartan result
-    String baseUrl = "http://44.202.119.26:8000";
+    String baseUrl = "http://54.145.124.192:8000";
     @Test
     public void test1(){
 
@@ -24,10 +24,10 @@ public class SpartanGetRequests {
                 .get(baseUrl + "/api/spartans");
 
         //printing status code from response object
-        System.out.println("response.statusCode() = " + response.statusCode());
+        System.out.println("response.statusCode() = " + response.statusCode());//response.statusCode() = 200
 
         //priting response content type from response object
-        System.out.println("response.contentType() = " + response.contentType());
+        System.out.println("response.contentType() = " + response.contentType());//response.contentType() = application/json
 
         //print whole result body
         response.prettyPrint();

@@ -20,9 +20,4 @@ public class SimpleGetRequest {
         response.prettyPrint();
 
     }
-
-
-
-
-
 }
