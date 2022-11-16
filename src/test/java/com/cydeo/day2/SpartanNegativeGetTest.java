@@ -32,7 +32,7 @@ public class SpartanNegativeGetTest {
         Response response = given()  //Given Accept type application/xml
                                     .accept(ContentType.XML)
                             .when() //When user send GET request to /api/spartans/10 end point
-                                    .get("/api/spartans/10");
+                                    .get("/api/spartans/10");//POSTMANda nasil yazarsan burdan yazabilirsin
                                     //Then status code must be 406
         //verify status code is 406
         assertEquals(406,response.statusCode());

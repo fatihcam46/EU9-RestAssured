@@ -20,7 +20,7 @@ public class SimpleGetRequest {
         response.prettyPrint();
 
     }
-
+    //----------------------------------------------------------------------
     String baseUrl = "http://54.145.124.192:8000";
     @Test
     public void test2() {
@@ -34,5 +34,13 @@ public class SimpleGetRequest {
 //    "gender": "Male",
 //    "phone": 6105035231
 //}
+    //----------------------------------------------------------------------
+@Test
+public void test3() {
+    Response response = RestAssured.given().log().all().get(baseUrl + "/api/spartans/3");
+    //print result body
+    response.prettyPrint();
+}
+    //log().all() means :in the console all url shows
 
 }

@@ -14,7 +14,7 @@ public class ORDSApiTestsWithParameters {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.202.119.26:1000/ords/hr";
+        baseURI = "http://54.145.124.192:1000/ords/hr";//MY IP ADDRESS
     }
 
     /*
@@ -30,7 +30,7 @@ public class ORDSApiTestsWithParameters {
     @Test
     public void test1(){
       Response response= given().accept(ContentType.JSON)
-                    .and().queryParam("q","{\"region_id\":2}")
+                    .and().queryParam("q","{\"region_id\":2}")//all region id 2 :olanlar print et
                     .log().all()
             .when()
                     .get("/countries");
@@ -40,18 +40,30 @@ public class ORDSApiTestsWithParameters {
       assertTrue(response.body().asString().contains("United States of America"));
 
       response.prettyPrint();
-
+//{
+//            "country_id": "AR",
+//            "country_name": "Argentina",
+//            "region_id": 2,
+//            "links": [
+//                {
+//                    "rel": "self",
+//                    "href": "http://54.145.124.192:1000/ords/hr/countries/AR"
+//                },,,,,,,,,
     }
+//-----------------------------------------------------------------------------
     /*
         Send a GET request to employees and get only employees who works as a IT_PROG
 
      */
-
+//http://54.145.124.192:1000/ords/hr/employees?q={"job_id": "IT_PROG"}
+// IP ADDRESS/ords/hr/employees?   q   =  { ..........}
     @DisplayName("GET request to /employees with Query Param")
     @Test
     public void test2(){
         Response response= given().accept(ContentType.JSON)
                 .and().queryParam("q","{\"job_id\": \"IT_PROG\"}")
+                //queryParam("q","{\"job_id\": \"IT_PROG\"}") if I delete , I can find all employees IT PROG
+                .log().all()
                 .when().get("/employees");
 
         assertEquals(200,response.statusCode());

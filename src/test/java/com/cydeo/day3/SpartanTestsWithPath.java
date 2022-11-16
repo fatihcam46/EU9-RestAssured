@@ -12,9 +12,6 @@ import static io.restassured.RestAssured.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SpartanTestsWithPath extends SpartanTestBase {
-
-
-
     /*
      Given accept type is json
      And path param id is 10
@@ -38,10 +35,14 @@ public class SpartanTestsWithPath extends SpartanTestBase {
     assertEquals("application/json",response.contentType());
 
     //verify each json key has specific value
-        System.out.println(response.path("id").toString());
+        System.out.println(response.path("id").toString());//reponse.path method>>id>>toString
         System.out.println(response.path("name").toString());
         System.out.println(response.path("gender").toString());
         System.out.println(response.path("phone").toString());
+//10
+//Lorenza
+//Female
+//3312820936
 
         int id = response.path("id");
         String name = response.path("name");
@@ -52,39 +53,41 @@ public class SpartanTestsWithPath extends SpartanTestBase {
         System.out.println("name = " + name);
         System.out.println("gender = " + gender);
         System.out.println("phone = " + phone);
-
+//id = 10
+//name = Lorenza
+//gender = Female
+//phone = 3312820936
         //assert the values
         assertEquals(10,id);
         assertEquals("Lorenza",name);
         assertEquals("Female",gender);
         assertEquals(3312820936l,phone);
-
-
     }
-
+    //--------------------------------------------------------------
     @DisplayName("GET all spartan and navigate with Path()")
     @Test
     public void test2(){
         Response response = given().accept(ContentType.JSON)
                 .when().get("/api/spartans");
 
-        //response.prettyPrint();
+        //response.prettyPrint();  all spartans here
 
-        int firstId = response.path("id[0]");
-        System.out.println("firstId = " + firstId);
+        int firstId = response.path("id[0]"); //id[0] index number :0 after 1,after 2
+        System.out.println("firstId = " + firstId);//firstId = 2
 
-        String name = response.path("name[0]");
-        System.out.println("name = " + name);
+        String name = response.path("name[0]");//first name index is 0
+        System.out.println("name = " + name);//name = Nels
 
         String lastFirstName = response.path("name[-1]");
-        System.out.println("lastFirstName = " + lastFirstName);
+        System.out.println("lastFirstName = " + lastFirstName);//lastFirstName = Meade
 
         //save names inside the list of string
-        List<String> names = response.path("name");
-        System.out.println(names);
-        //print each name one by one
+        List<String> names = response.path("name");//arraylist lets do
+        System.out.println(names);//[Nels, Fidole,Paige, Blythe,...
+
+        //we can do to print each name one by one
         for (String n : names) {
-            System.out.println(n);
+            System.out.print(n+", ");//Nels, Fidole, Paige, Blythe,...
         }
     }
 }
