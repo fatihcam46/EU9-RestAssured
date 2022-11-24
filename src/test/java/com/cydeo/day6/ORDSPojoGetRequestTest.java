@@ -4,7 +4,6 @@ import com.cydeo.utilities.*;
 import io.restassured.path.json.*;
 import org.junit.jupiter.api.*;
 
-import javax.swing.plaf.synth.Region;
 import java.util.*;
 
 import static io.restassured.RestAssured.*;
@@ -17,13 +16,13 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
 
         JsonPath jsonPath = get("/regions").then().statusCode(200).log().body().extract().jsonPath();
 
- //       Region region1 = jsonPath.getObject("items[0]", Region.class);
+       Region region1 = jsonPath.getObject("items[0]", Region.class);
 
-  //       System.out.println(region1);
+         System.out.println(region1);
 
- //      System.out.println("region1.getRegion_id() = " + region1.getRId());
-//     System.out.println("region1.getRegion_name() = " + region1.getRegion_name());
- //       System.out.println("region1.getLinks().get(0).getHref() = " + region1.getLinks().get(0).getHref());
+      System.out.println("region1.getRegion_id() = " + region1.getRId());
+     System.out.println("region1.getRegion_name() = " + region1.getRegion_name());
+       System.out.println("region1.getLinks().get(0).getHref() = " + region1.getLinks().get(0).getHref());
 
     }
 
@@ -60,14 +59,14 @@ public class ORDSPojoGetRequestTest extends HRTestBase {
         List<Integer> regionIds = new ArrayList<>();
 
         //get list of regions out of regions object
- //       List<Region> items = regions.getItems();
+        List<Region> items = regions.getItems();
 //loop through each of the region, save their ids and names to empty list that we prepare
- //       for (Region region : items) {
- //           regionIds.add(region.getRId());
- //           regionNames.add(region.getRegion_name());
- //       }
- //       System.out.println("regionIds = " + regionIds);
- //       System.out.println("regionNames = " + regionNames);
+       for (Region region : items) {
+           regionIds.add(region.getRId());
+           regionNames.add(region.getRegion_name());
+       }
+       System.out.println("regionIds = " + regionIds);
+        System.out.println("regionNames = " + regionNames);
         //prepare expected result
         List<Integer> expectedRegionIds = Arrays.asList(1,2,3,4);
         List<String> expectedRegionNames = Arrays.asList("Europe", "Americas", "Asia", "Middle East and Africa");
