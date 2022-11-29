@@ -15,7 +15,7 @@ public class HrGetRequests {
     @BeforeAll
     public static void init(){
         //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://54.145.124.192:1000/ords/hr";//my IP ADDRESS from HR from AWS
+        baseURI = "http://3.87.65.105:1000/ords/hr";//my IP ADDRESS from HR from AWS
 
     }
 

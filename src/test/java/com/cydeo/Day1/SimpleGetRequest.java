@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 //day1:
 public class SimpleGetRequest {
 
-    String url = "http://54.145.124.192:8000/api/spartans";
+    String url = "http://3.87.65.105:8000/api/spartans";
 //my ip adres:8000 from POSTMAN
     @Test
     public void test1(){
@@ -21,7 +21,7 @@ public class SimpleGetRequest {
 
     }
     //----------------------------------------------------------------------
-    String baseUrl = "http://54.145.124.192:8000";
+    String baseUrl = "http://3.87.65.105:8000";
     @Test
     public void test2() {
         Response response = RestAssured.get(baseUrl + "/api/spartans/3");
