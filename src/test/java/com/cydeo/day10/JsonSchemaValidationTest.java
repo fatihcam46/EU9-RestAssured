@@ -29,9 +29,7 @@ public class JsonSchemaValidationTest extends SpartanAuthTestBase {
          //new dependency>>JsonSchemaValidator>>resources in icindeki singleSpartanSchema yi kontrol ediyor
          //matchesJsonSchemaInClasspath(.....
             .log().all();
-
     }
-
     @DisplayName("GET request to all spartans and verify schema")
     @Test
     public void allSpartanSchemaTest(){
@@ -48,14 +46,8 @@ public class JsonSchemaValidationTest extends SpartanAuthTestBase {
            //matchesJsonSchema(new File...
            .log().all();
     }
-
     //homework
     //put your post json schema under day10
     //post one spartan using dynamic input(name,gender,phone)
     //verify your post response matching with json schema
-
-
-
-
 }
-
