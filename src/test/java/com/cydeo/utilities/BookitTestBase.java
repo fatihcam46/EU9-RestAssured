@@ -21,7 +21,7 @@ public class BookitTestBase {
 
         teacherReqSpec = given()
                 .accept(ContentType.JSON)
-                .header("Authorization",getTokenByRole("teacher"))
+                .header("Authorization",getTokenByRole("teacher"))//getTokenByRole method
                 .log().all();
         studentMemberReqSpec =given()
                 .accept(ContentType.JSON)
