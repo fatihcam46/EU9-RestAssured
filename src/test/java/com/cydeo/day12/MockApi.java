@@ -5,24 +5,26 @@ import org.junit.jupiter.api.*;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
-
+//DAY 14 END OF RECORD
 public class MockApi {
 
 
-    //https://e787164d-adbd-474e-8c98-6796a1e3af70.mock.pstmn.io
+    //https://2c93c3f0-6cfd-4255-a83d-626470a2a852.mock.pstmn.io
+    //I created from POSTMAN mock server
 
 
     @Test
     public void test1(){
 
-        given().baseUri("https://e787164d-adbd-474e-8c98-6796a1e3af70.mock.pstmn.io")
+        given().baseUri("https://2c93c3f0-6cfd-4255-a83d-626470a2a852.mock.pstmn.io")
                 .accept(ContentType.JSON)
-                .when()
+        .when()
                 .get("/customer")
-                .then()
-                .statusCode(200)
-                .contentType(ContentType.JSON)
-                .body("firstName",is("John"));
+                .prettyPrint();
+       // .then()
+        //        .statusCode(200)
+        //        .contentType(ContentType.JSON)
+        //        .body("firstName",is("John"));
 
 
     }
@@ -30,7 +32,8 @@ public class MockApi {
     @Test
     public void test2(){
 
-        given().baseUri("https://e787164d-adbd-474e-8c98-6796a1e3af70.mock.pstmn.io")
+        given().baseUri("https://2c93c3f0-6cfd-4255-a83d-626470a2a852.mock.pstmn.io")
+
                 .accept(ContentType.JSON)
                 .when()
                 .get("/employees")
