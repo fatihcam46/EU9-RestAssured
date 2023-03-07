@@ -26,7 +26,7 @@ public class SpartanGetRequests {
         //printing status code from response object
         System.out.println("response.statusCode() = " + response.statusCode());//response.statusCode() = 200
 
-        //priting response content type from response object
+        //printing response content type from response object
         System.out.println("response.contentType() = " + response.contentType());//response.contentType() = application/json
 
         //print whole result body
@@ -43,7 +43,7 @@ public class SpartanGetRequests {
 //--------------------------------------------------------------------
      /*
         Given accept header is application/json
-        When users sends a get request to /api/spartans/3
+        When users send a get request to /api/spartans/3
         Then status code should be 200
         And content type should be application/json
         and json body should contain Fidole
@@ -77,7 +77,7 @@ public class SpartanGetRequests {
 //--------------------------------------------------------------------
     /*
         Given no headers provided
-        When Users sends GET request to /api/hello
+        When Users send GET request to /api/hello
         Then response status code should be 200
         And Content type header should be “text/plain;charset=UTF-8”
         And header should contain date

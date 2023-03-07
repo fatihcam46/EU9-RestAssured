@@ -56,9 +56,4 @@ public class HrGetRequests {
         assertTrue(response.body().asString().contains("Americas"));
 //assertEquals it is same as assertTrue
     }
-
-
-
-
-
 }
